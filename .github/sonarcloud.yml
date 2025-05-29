@@ -16,16 +16,16 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
         with:
-          node-version: '18'
+          flutter-version: '3.3.10'
 
       - name: Install dependencies
-        run: npm install
+        run: flutter pub get
 
       - name: Run tests
-        run: npm test
+        run: flutter test
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2
